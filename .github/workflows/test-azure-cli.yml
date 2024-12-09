@@ -1,0 +1,32 @@
+name: Test Azure CLI
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI or API.
+on: workflow_dispatch
+
+
+# GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
+# Added this:
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+             # set the name for the Azure SQL Database
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+   
+    # This example uses federated identity (OIDC) for authentication
+    - name: Login for az cli commands 
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+    - name: Get Azure SubscriptionId
+      run: |
+        CURRENT_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+        echo "AZURE_SUBSCRIPTION_ID=$CURRENT_SUBSCRIPTION_ID" >> $GITHUB_ENV
+        echo "Current SubscriptionId: $CURRENT_SUBSCRIPTION_ID"
