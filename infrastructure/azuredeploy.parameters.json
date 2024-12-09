@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "webAppName": {
-      "value": "app-todo-sample"
+      "value": "pnr-app-todo-sample"
     },
     "containerRegistryName": {
-      "value": "acrtodosample"
+      "value": "pnracrtodosample"
     },
     "sqlServerName": {
-      "value": "sql-todo-sample"
+      "value": "pnr-sql-todo-sample"
     },
     "dbAdminLogin": {
-      "value": "dbusradm"
+      "value": "pietronromano"
     },
     "dbName": {
       "value": "sqldb-todo"
