@@ -19,8 +19,8 @@ jobs:
     - name: check Azure creds
       run: | 
         echo ${{ secrets.AZURE_CLIENT_ID }}
-        echo: ${{ secrets.AZURE_TENANT_ID }}
-        echo: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        echo ${{ secrets.AZURE_TENANT_ID }}
+        echo ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
    
     # This example uses federated identity (OIDC) for authentication
