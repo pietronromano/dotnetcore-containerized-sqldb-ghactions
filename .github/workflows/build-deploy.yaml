@@ -7,6 +7,13 @@ on:
     - 'infrastructure/**'
     - '.github/workflows/**'
 
+# GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
+# Added this:
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+  
+
 # This workflow consider the required Azure Resources are ready. Follow the detailed instructions to setup the pre-requisites in azuredeploy.yaml to:
 #   1. Prepare the Azure Resource Group
 #   2. Setup the service principal and create the credentials
