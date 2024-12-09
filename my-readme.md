@@ -168,7 +168,7 @@ echo $spId
 subscriptionId="a2401ab8-bd17-453c-a13b-ae728a0271e9"
 echo $subscriptionId
 
-## REmove first slash from --scope to avoid resource provider error
+## REmove first slash / from --scope to avoid resource provider error
 az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $spId --assignee-principal-type ServicePrincipal --scope subscriptions/$subscriptionId/resourceGroups/$rg
 {
   "condition": null,
@@ -222,8 +222,21 @@ az ad app federated-credential create --id $appObjectId --parameters credential.
 
 
 # GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
-# Added this:
+# Added this and it worked:
     - https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
+
+
+  
+# Add container registry and SQL secrets
+ - In the Azure portal, open your newly created Azure Container Registry in your resource group.
+   - Go to Access keys and copy the username and password values.
+   - Create new GitHub secrets for ACR_USERNAME and ACR_PASSWORD password in your repository.
+
+ - In the Azure portal, open your Azure SQL database. Open Connection strings and copy the value.
+   - Create a new secret for SQL_CONNECTION_STRING. Replace {your_password} with your SQL_SERVER_ADMIN_PASSWORD.
+   - ACR_USERNAME: pnracrtodosample
+     ACR_PASSWORD            - YGhqvZ5+fEao1JQlAypXG/4MRA4BfPq4IlWnnOvxSd+ACRBZ/MiN
+     SQL_CONNECTION_STRING: Server=tcp:pnr-sql-todo-sample.database.windows.net,1433;Initial Catalog=sqldb-todo;Persist Security Info=False;User ID=pietronromano;Password=Axml-xsl0123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
