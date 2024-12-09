@@ -218,3 +218,12 @@ az ad app federated-credential create --id $appObjectId --parameters credential.
  - Create a new secret in your repository for SQL_SERVER_ADMIN_PASSWORD
    - SQL_SERVER_ADMIN_PASSWORD: Axml-xsl0123
    - SQL_SERVER_ADMIN_USER: pietronromano   [my addition]
+
+
+
+# GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
+# Added this:
+    - https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout

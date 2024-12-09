@@ -3,6 +3,14 @@ name: Create Azure Resources
 # Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on: workflow_dispatch
 
+
+# GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
+# Added this:
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+
 # Pre-Requisites
 # Create the target Resource Group
 # 1. Open the Azure Cloud Shell at https://shell.azure.com. You can alternately use the Azure CLI if you've installed it locally. (For more information on Cloud Shell, see the Cloud Shell Overview.)  
