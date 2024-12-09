@@ -205,7 +205,7 @@ az ad app federated-credential create --id $appObjectId --parameters credential.
   "id": "a6f858aa-ea0d-4ca6-bd4e-0d3c9c71d32f",
   "issuer": "https://token.actions.githubusercontent.com",
   "name": "AppDBTestCred",
-  "subject": "repo:pietronromano/dotnetcore-containerized-sqldb-ghactions:refs/heads/main"
+  "subject": "repo:pietronromano/dotnetcore-containerized-sqldb-ghactions:ref:refs/heads/main"
 }
 
 # Configure the GitHub secret for authentication
