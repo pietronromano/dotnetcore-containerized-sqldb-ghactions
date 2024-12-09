@@ -2,7 +2,7 @@
 # You have to login and select your default subscription to azure befor using this script: 
 # az login
 # az account set --subscription "<your_subscription>" 
-containerRegistryName="acrtodosample" #TODO: set your container registry name
+containerRegistryName="pnracrtodosample" #TODO: set your container registry name
 containerRegistryUser="$containerRegistryName"
 containerImageName="app-todo-sample"  
 azureContainerRegistry="$containerRegistryName.azurecr.io"
