@@ -3,6 +3,8 @@ name: Test Azure CLI
 # Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on: workflow_dispatch
 
+# NOTE: PRE-REQUISITES: requires RG to exist and have a Service Principal
+## az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $spId --assignee-principal-type ServicePrincipal --scope subscriptions/$subscriptionId/resourceGroups/$rg
 
 # GOT ERROR: Error: Please make sure to give write permissions to id-token in the workflow.
 # Added this:
